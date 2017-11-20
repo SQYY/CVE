@@ -6,7 +6,7 @@ Enter the Payload in the username, it will prompt the user name or password is i
 Payload has been stored to the database.However, only 40 characters can be recorded
 Log in with the correct account password, log in the background log can be viewed
 Source:
-		StyleController.php:84-90
+		User.class.php:84-90
             if (false == $userInfo) {
                 $this->record($identifier, $password, 0);
                 return false;
