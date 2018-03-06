@@ -1,7 +1,7 @@
 # By Li ZaiTang
 
 '''
-Attackers can simulate the form sent to the administrator, through CSRF loopholes attacker can steal user property, session and other information
+Attackers can simulate the form sent to the administrator through the CSRF vulnerability attacker can add any administrator information
 Source: 
 	RbacController.class.php:37-47
 		if (IS_POST) {
