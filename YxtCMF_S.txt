@@ -3,7 +3,8 @@
 '''
 For the incoming id intval escaped, but the POST incoming ids if passed into an array will automatically addslashes for 
 proofing,if the string is passed, it will lead to the existence of SQL injection vulnerability
-Source: 267-274行
+Source: 
+	ShitiController.class.php :267-274
 		if(isset($_POST['ids'])){
 			$tids=join(",",$_POST['ids']);
 			if ($this->shiti_obj->where("id in ($tids)")->delete()) {
