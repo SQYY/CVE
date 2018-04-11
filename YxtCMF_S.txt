@@ -1,5 +1,5 @@
 # By Li ZaiTang
-
+	CVE-2018-7732
 '''
 For the incoming id intval escaped, but the POST incoming ids if passed into an array will automatically addslashes for 
 proofing,if the string is passed, it will lead to the existence of SQL injection vulnerability
