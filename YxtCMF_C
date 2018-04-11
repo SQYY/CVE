@@ -1,5 +1,5 @@
 # By Li ZaiTang
-
+	CVE-2018-7733
 '''
 Attackers can simulate the form sent to the administrator through the CSRF vulnerability attacker can add any administrator information
 Source: 
