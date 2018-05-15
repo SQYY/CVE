@@ -1,4 +1,4 @@
-# By 常颖
+# By Li ZaiTang
 	CVE-2017-16230
 '''
 Log in to the background page, write a new article, you can add payload in the article content, resulting in XSS
