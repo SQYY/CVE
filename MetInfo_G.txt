@@ -1,4 +1,4 @@
-# By zaitang@qypt.com.cn
+# By GuoXiQuan@清远职业技术学院信息安全技术与研究所
 	CVE-2018-7271	
 '''
 In the CMS installation process, the configuration file filtering is not rigorous, you can insert malicious code in the installation process to execute arbitrary commands, and even get Webshell
