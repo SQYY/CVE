@@ -1,4 +1,4 @@
-# By Li ZaiTang
+# By zaitang@qypt.com.cn
 	CVE-2018-7732
 '''
 For the incoming id intval escaped, but the POST incoming ids if passed into an array will automatically addslashes for 
