@@ -1,4 +1,5 @@
-# By zaitang@qypt.com.cn
+# By GuoXiQuan@清远职业技术学院信息安全技术与研究所
+	www.qypt.com.cn
 	CVE-2017-16903
 '''
 Filepath direct access to the file path here, although there is filtering, but it can not be affected	
