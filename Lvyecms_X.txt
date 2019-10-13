@@ -1,4 +1,4 @@
-# By GuoXiQuan@清远职业技术学院信息安全技术与研究所
+# By 李在堂
 	CVE-2017-16904
 '''
 Whether the login succeeds or fails, it will be logged in the log-in log
