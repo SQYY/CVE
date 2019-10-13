@@ -1,4 +1,4 @@
-# By GuoXiQuan@清远职业技术学院信息安全技术与研究所
+# By 水清云影
 	CVE-2018-7733
 '''
 Attackers can simulate the form sent to the administrator through the CSRF vulnerability attacker can add any administrator information
