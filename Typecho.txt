@@ -1,4 +1,4 @@
-# By GuoXiQuan@清远职业技术学院信息安全技术与研究所
+# By 水清云影
 	CVE-2017-16230
 '''
 Log in to the background page, write a new article, you can add payload in the article content, resulting in XSS
