@@ -1,0 +1,20 @@
+# By Li Zaitang
+
+SQL Injection：
+    
+    In the Report's page,ids parameters are spliced ​​directly into sql, it will creat a SQL Injection.
+
+'''
+
+
+Source:
+      /TITAN-master/titan-manager/src/main/java/com/yunji/titan/manager/dao/ReportDao.java :113-115
+
+	public int removeReport(String ids) throws Exception {
+		String sql = "DELETE FROM t_report WHERE report_id IN (" + ids + ")";
+		return jdbcTemplate.update(sql);
+	}
+
+	Affected software:TITAN <= 2.0.0
+	Software Link: https://github.com/chkch/TITAN
+'''
