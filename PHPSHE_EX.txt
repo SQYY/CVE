@@ -1,4 +1,4 @@
-# By 水清云影
+# By GuoXiQuan@清远职业技术学院信息安全技术与研究所
 
 Code Execution：
     The code did not filter the configuration information during the installation process.so that any code can be written to the configuration file.when filling in the database configuration, the data table prefix can be modified to write malicious code.
