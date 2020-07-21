@@ -1,4 +1,4 @@
-# By 水清云影
+# By GuoXiQuan@清远职业技术学院信息安全技术与研究所
 
 SQL Injection：
     Normally delete the content, $_p_brand_id will enter the intval function，but delete the content in bulk，$_p_brand_id will directly enter the SQL statement
